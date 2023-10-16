@@ -5,8 +5,12 @@ import { cookies } from "next/dist/client/components/headers";
 import { prisma } from "./prisma";
 
 export type CartWithServices = Prisma.CartGetPayload<{
-    include: { items: { include: { service: true } } }
-}>
+    include: { items: { include: { service: true } } };
+}>;
+
+export type CartItemWithService = Prisma.CartItemGetPayload<{
+    include: {service: true};
+}>;
 
 export type ShoppingCart = CartWithServices & {
     size: number,
