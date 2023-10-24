@@ -3,6 +3,8 @@
 import { redirect } from "next/navigation";
 import { prisma } from "../lib/db/prisma";
 import FormSumitButton from "@/components/FormSubmitButton";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export const metadata = {
     title: 'Agregar Servicio - UNa Ayuda',
@@ -12,6 +14,12 @@ export const metadata = {
 
 async function addService(formData: FormData) {
     "use server";
+
+    const session = await getServerSession(authOptions);
+
+    if (!session) {
+        redirect("/api/auth/signin?callbackUrl=/add-service");
+    }
 
     // inicializar variables
     const name = formData.get('name')?.toString();
@@ -26,14 +34,20 @@ async function addService(formData: FormData) {
 
     // permitir realizar a prisma una operación dentro de la bd
     await prisma.service.create({
-        data: {name, description, imageURL, price}
+        data: {name, description, imageURL, price},
     });
 
     // Redireccionar a la pg principal depues de ingresar el servcio
     redirect("/");
 }
 
-export default function AddServicePage(){
+export default async function AddServicePage(){
+    const session = await getServerSession(authOptions);
+
+    if (!session){
+        redirect("/api/auth/signin?callbackUrl=/add-service");
+    }
+
     return(
         <div>
             <h1 className="text-lg mb-3 font-bold">Agregar Servicio</h1>
