@@ -58,8 +58,9 @@ export default async function ServicePage (
                 <p className="py-6">{service.description}</p>
                 <AddToCartButton 
                     serviceId={service.id} 
-                    incrementServiceQuantity={incrementServiceQuantity}/>
+                    incrementServiceQuantity={incrementServiceQuantity}
+                />
             </div>
         </div>
-    )
+    );
 }
