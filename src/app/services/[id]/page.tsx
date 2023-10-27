@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { cache } from "react";
 import AddToCartButton from "./AddToCartButton";
-import { incrementServiceQuantity } from "../actions";
+import { incrementServiceQuantity } from "./actions";
 
 interface ServicePageProps{
     params: {
