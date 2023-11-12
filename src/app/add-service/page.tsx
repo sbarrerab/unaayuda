@@ -32,7 +32,7 @@ async function addService(formData: FormData) {
         throw Error("Campos faltantes requeridos");
     }
 
-
+/*
     // Para crear el mismo item varias veces
     for (let i = 0; i < 50; i++){
         // permitir realizar a prisma una operación dentro de la bd
@@ -40,11 +40,11 @@ async function addService(formData: FormData) {
             data: {name, description, imageURL, price},
         });
     }
+*/
 
-
-  /*  await prisma.service.create({
+    await prisma.service.create({
         data: {name, description, imageURL, price},
-    });*/
+    });
     
     // Redireccionar a la pg principal depues de ingresar el servcio
     redirect("/");
