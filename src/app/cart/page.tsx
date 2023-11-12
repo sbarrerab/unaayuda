@@ -13,7 +13,7 @@ export default async function CartPage() {
 
     return(
         <div>
-            <h1 className="text-3xl mb-6 font-bold">Carrito de Commpras</h1>
+            <h1 className="text-3xl mb-6 font-bold">Carrito de Compras</h1>
             {cart?.items.map((cartItem) => (
                 <CartEntry 
                     cartItem={cartItem} 
@@ -26,7 +26,7 @@ export default async function CartPage() {
                 <p className="mb-3 font-bold">
                     Total: {formatPrice(cart?.subtotal || 0)}
                 </p>
-                <button className="btn btn-primary sm:w-[200px]">Explorar</button>
+                <button className="btn btn-primary sm:w-[200px]">Proceder a pago</button>
             </div>
         </div>
     );

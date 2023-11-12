@@ -58,7 +58,7 @@ export default async function Home({
           </div>
         </div>
       )}
-        <div className='my-4 grid grid-cols-1 md:grid-cols-2 xl: grid-cols-3 gap-4'>
+        <div className='my-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4'>
           {(currentPage === 1 ? services.slice(1) : services).map((service) => (
             <ServiceCard service={service} key={service.id} />
           ))}
