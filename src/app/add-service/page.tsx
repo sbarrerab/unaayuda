@@ -6,6 +6,11 @@ import FormSumitButton from "@/components/FormSubmitButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 
+
+
+
+
+
 export const metadata = {
     title: 'Agregar Servicio - UNa Ayuda',
 }
@@ -34,17 +39,17 @@ async function addService(formData: FormData) {
 
 
     // Para crear el mismo item varias veces
-    for (let i = 0; i < 50; i++){
+    /*  for (let i = 0; i < 50; i++){
         // permitir realizar a prisma una operación dentro de la bd
         await prisma.service.create({
             data: {name, description, imageURL, price},
         });
-    }
+    }*/
 
 
-  /*  await prisma.service.create({
+    await prisma.service.create({
         data: {name, description, imageURL, price},
-    });*/
+    });
     
     // Redireccionar a la pg principal depues de ingresar el servcio
     redirect("/");

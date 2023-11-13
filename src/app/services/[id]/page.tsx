@@ -9,6 +9,20 @@ import { cache } from "react";
 import AddToCartButton from "./AddToCartButton";
 import { incrementServiceQuantity } from "./actions";
 
+
+// SDK de Mercado Pago
+import MercadoPago from "mercadopago";
+// Agrega credenciales
+const client = new MercadoPago({ accessToken: 'TEST-920519261779570-111215-43aa33295fa61f13698240ad5c6ec8ce-1545328699' });
+
+let preference = ({
+    items: [{
+
+    }]
+});
+
+ 
+
 interface ServicePageProps{
     params: {
         id: string,
@@ -20,6 +34,8 @@ const getService = cache(async (id: string) => {
     const service = await prisma.service.findUnique({where: {id}})
     if (!service) notFound();
     return service;
+
+    
 })
 
 export async function generateMetadata(
@@ -63,4 +79,14 @@ export default async function ServicePage (
             </div>
         </div>
     );
+
+    preference.items.push({
+        name: service.name,
+        price: service.price,
+        quantity: 1,
+    });
+
+
+
+
 }

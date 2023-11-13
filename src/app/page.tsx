@@ -15,7 +15,7 @@ interface HomeProps {
     searchParams: { page: string };
 }
 export default async function Home({
-  searchParams: { page = "1" },
+  searchParams: { page = "1" }, 
 }: HomeProps) {
   const currentPage = parseInt(page);
 
