@@ -38,6 +38,7 @@ export default async function Home({
       {currentPage === 1 && (
         <div className='hero rounded-xl bg-base-200'>
           <div className='hero-content flex-col lg:flex-row'>
+            
             <Image
               src={services[0].imageURL}
               alt={services[0].name}
@@ -46,6 +47,7 @@ export default async function Home({
               className='w-full max-w-sm rounded-lg shadow-2xl'
               priority
             />
+            
             <div>
               <h1 className='text-5xl font-bold'>{services[0].name}</h1>
               <p className='py-6'>{services[0].description}</p>
