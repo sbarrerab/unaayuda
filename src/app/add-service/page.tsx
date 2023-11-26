@@ -6,6 +6,7 @@ import FormSumitButton from "@/components/FormSubmitButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 
+
 export const metadata = {
     title: 'Agregar Servicio - UNa Ayuda',
 }
@@ -14,6 +15,8 @@ export const metadata = {
 
 async function addService(formData: FormData) {
     "use server";
+
+    
 
     const session = await getServerSession(authOptions);
 

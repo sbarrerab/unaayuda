@@ -1,6 +1,10 @@
 "use client";
 
+import CartEntry from "@/app/cart/CartEntry";
+import { Prisma } from "@prisma/client";
 import { useState, useTransition } from "react";
+
+
 
 interface AddToCartButtonProps {
     serviceId: string;
@@ -13,6 +17,9 @@ export default function AddToCartButton({
 }: AddToCartButtonProps){
     const [isPending, startTransition] = useTransition();
     const [success, setSuccess] = useState(false);
+    
+
+   
 
     return(
         <div className="flex items-center gap-2">
@@ -25,6 +32,8 @@ export default function AddToCartButton({
                     await incrementServiceQuantity(serviceId, 0);
                     setSuccess(true);
                 });
+
+                
             }}
         >
             Agregar al carrito de compras.

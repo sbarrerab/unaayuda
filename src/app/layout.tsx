@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import NavBar from './NavBar/NavBar'
 import Footer from './Footer'
 import SessionProvider from "./SessionProvider"
+import CartProvider from '../../providers/CartProvedir'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,11 +21,13 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={inter.className}>
+      <CartProvider>
       <SessionProvider>
         <NavBar/>
         <main className='p-4 max-w-7xl m-auto min-w-[300px]'>{children}</main>
         <Footer/>
       </SessionProvider>
+      </CartProvider>
       </body>
     </html>
   );
