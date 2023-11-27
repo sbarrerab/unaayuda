@@ -1,3 +1,4 @@
+/*
 import ServiceCard from "@/components/ServiceCard";
 import { prisma } from "../lib/db/prisma";
 import { Metadata } from "next";
@@ -39,10 +40,8 @@ export default async function SearchPage({
         </div>
     );
 }
+*/
 
-
-/*
 import SearchPage from "@/app/search/query";
 
 export default SearchPage;
-*/
