@@ -1,4 +1,3 @@
-/*
 import ServiceCard from "@/components/ServiceCard";
 import { prisma } from "../lib/db/prisma";
 import { Metadata } from "next";
@@ -7,11 +6,20 @@ interface SearchPageProps {
     searchParams: { query: string };
 }
 
+/*
 export function generateMetaData({
     searchParams: {query}, 
 } : SearchPageProps) : Metadata {
     return {
         title: 'Buscar: ${query} - UNa Ayuda',
+    };
+}
+*/
+export function generateMetaData({
+    searchParams: { query }, 
+}: SearchPageProps): Metadata {
+    return {
+        title: `Buscar: ${query} - UNa Ayuda`,
     };
 }
 
@@ -40,9 +48,3 @@ export default async function SearchPage({
         </div>
     );
 }
-*/
-
-/*
-import SearchPage from "@/app/search/query";
-
-export default SearchPage;*/
