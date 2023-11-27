@@ -42,6 +42,7 @@ export default async function SearchPage({
 }
 */
 
+/*
 import SearchPage from "@/app/search/query";
 
-export default SearchPage;
+export default SearchPage;*/
