@@ -1,5 +1,5 @@
-import ServiceCard from "@/components/ServiceCard"
-import { prisma } from "../lib/db/prisma"
+import ServiceCard from "@/components/ServiceCard";
+import { prisma } from "../lib/db/prisma";
 import { Metadata } from "next";
 
 interface SearchPageProps {
@@ -24,18 +24,18 @@ export default async function SearchPage({
                 { description: { contains : query, mode: "insensitive" } },
             ],
         },
-        orderBy: {id: "desc"}
+        orderBy: {id: "desc"},
     });
 
     if (services.length === 0) {
-        return <div className="text-center"></div>
+        return <div className="text-center"></div>;
     }
 
     return (
         <div className="my-4 grid grid-cols-1 md:grid-cols-2 xl: grid-cols-3 gap-4">
-            {services.map(service => (
+            {services.map((service) => (
                 <ServiceCard service={service} key={service.id} />
             ))}
         </div>
-    )
+    );
 }
